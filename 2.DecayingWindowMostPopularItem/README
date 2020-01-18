@@ -1,0 +1,105 @@
+************** COEN 281 Programming Assignment 2 *****************
+
+Members
+------------------------------------------------------------------
+Shweta Kharat -
+
+******************************************************************
+
+Compile and Execute Instructions
+------------------------------------------------------------------
+Below are the files for ‘Programming Assignment 2 : Most Popular Item in Stream.’:
+	P2.java - source code
+	Makefile - commands to compile, run, clean
+	Input - streaming data from server.py
+	Test Output File - out 
+
+Below are the lists of commands from 'Makefile' to compile and run the 'Programming Assignment 2':
+
+	1. make all - Command to compile the source code
+	2. make run - Command to run '.class' executable created after compilation
+	3. make clean - Command to clean residue i.e. '.class' executable
+
+
+*******************************************************************
+Algorithm:
+1. Create socket
+2. Get decaying constant 'c' and host:port from user
+3. Get streaming data from server
+4. Store data in hash map as (id, timestamp, sum, count)
+5. Multiply each item's 'sum' by 'c' for each new item arrival
+6. If new item id = existing item id, sum = sum+1, count = count+1
+	Else, sum = 1, count = 1 for new item id
+7. Find popular id depending on timestamp and count
+8. Get query from user
+9. Display current popular item timestamp, item id
+
+------------------------------------------------------------------
+Test Cases Supported:
+1. If decaying constant enters bu user is not double, display error and exit
+2. If host is not 'localhost', display error and exit
+3. If c, host, port are correct, get query from user
+	If query not right,
+		Display error and correct query
+	Get correct query from user
+4. Display timestamp and item id of most current popular item.
+   
+ 
+---------------------------------------------------------------------
+
+
+Sample Test Input with Output Results
+-------------------------------------------------------------------
+INPUT : 
+Data stream from Server
+$ python server.py 100000 1000 2000
+connect to port number 60150
+Got a connection from ('127.0.0.1', 60151)
+
+
+OUTPUT :
+Case 1. 
+Enter Decaying Constant c = 
+a
+Invalid input: Enter correct c
+
+Case 2.
+Enter Decaying Constant c = 
+0.001
+Enter Server Details (<host>:<port>) 
+host:60130
+Enter correct host name (localhost)
+
+Case 3.
+Enter Decaying Constant c = 
+0.001
+Enter Server Details (<host>:<port>) 
+localhost:60150
+Please enter query:
+Wh
+Please enter correct query as:
+What is the most current popular itemID?
+Please enter query:
+
+Case 4.
+Enter Decaying Constant c = 
+0.001
+Enter Server Details (<host>:<port>) 
+localhost:60150
+Please enter query:
+What is the most current popular itemID?
+Timestamp 	 Item Id
+15873		 55967
+Please enter query:
+What is the most current popular itemID?
+Timestamp 	 Item Id
+17830		 58785
+Please enter query:
+What is the most current popular itemID?
+Timestamp 	 Item Id
+19724		 13391
+Please enter query:
+
+
+
+

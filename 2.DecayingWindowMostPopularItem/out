@@ -1,0 +1,28 @@
+***************************************
+Program to Most Popular Item in Stream.
+***************************************
+
+Data stream from Server
+$ python server.py 100000 1000 2000
+connect to port number 60150
+Got a connection from ('127.0.0.1', 60151)
+
+Output:
+Enter Decaying Constant c = 
+0.001
+Enter Server Details (<host>:<port>) 
+localhost:60150
+Please enter query:
+What is the most current popular itemID?
+Timestamp 	 Item Id
+15873		 55967
+Please enter query:
+What is the most current popular itemID?
+Timestamp 	 Item Id
+17830		 58785
+Please enter query:
+What is the most current popular itemID?
+Timestamp 	 Item Id
+19724		 13391
+Please enter query:
+

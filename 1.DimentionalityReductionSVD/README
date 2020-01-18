@@ -1,0 +1,127 @@
+************** COEN 281 Programming Assignment 1 *****************
+
+Members
+------------------------------------------------------------------
+Shweta Kharat
+
+******************************************************************
+
+Compile and Execute Instructions
+------------------------------------------------------------------
+Below are the files for ‘Programming Assignment 1 : Dimensional Deduction Using SVD’:
+	P1.java - source code
+	thirdPartyLibraryJama - Classes used from jama library
+		-EigenValueDecomposition.java
+		-Matrix.java
+		-util
+			-Maths.java
+	NOTE : ABOVE LIBRARY CLASSES WERE ONLY USED TO FIND VECTORS FOR CUBIC EQUATIONS (EG : x^3 + 2X^2 - x + 5)
+	Makefile - commands to compile, run, clean
+	Test Input Files -t10.dat
+	Test Output File - out 
+
+Below are the lists of commands from 'Makefile' to compile and run the 'Programming Assignment 1':
+
+	1. make all - Command to compile the source code
+	2. make run - Command to run '.class' executable created after compilation
+	3. make clean - Command to clean residue i.e. '.class' executable
+
+
+*******************************************************************
+Algorithm:
+1. Get input from user
+2. Parse string to form matrix A
+3. Find AT(transpose)
+4. Find AT - cI and calculate c1,c2,..
+5. Find S and SInv(inverse)
+6. Find V and VT by substituting values of c in AT - cI
+7. Find U = A * V * SInv
+8. Find B = U * S * VT
+9. Calculate Frobenius Norm
+
+------------------------------------------------------------------
+Test Cases Supported:
+t10. Size of A = 3 * 3 matrix
+t11. Ignore comments in input
+t12. Size of A = 2 * 2 matrix
+t13. Ignore space or tab in input
+t14. Size of A = 3 * 2 matrix
+t17. Display error if column size is inconsistent
+t18. Display error if column size exceeds 3
+t19. Display error if data type is not integer
+ 
+---------------------------------------------------------------------
+
+
+Sample Test Input with Output Results
+-------------------------------------------------------------------
+INPUT : 
+4 0
+3 -5
+
+
+OUTPUT :
+Please enter matrix A : 
+rows = 2
+columns = 2
+
+Matrix A:
+4.0			0.0			
+3.0			-5.0			
+
+Matrix AT:
+4.0			3.0			
+0.0			-5.0			
+
+Matrix AT * A:
+25.0			-15.0			
+-15.0			25.0			
+
+c1 = 40.0
+c2 = 10.0
+s1 = 6.324555320336759
+s2 = 3.1622776601683795
+
+Matrix S:
+6.324555320336759			0.0			
+0.0			3.1622776601683795			
+
+Matrix SInv:
+0.15811388300841897			0.0			
+0.0			0.31622776601683794			
+
+Matrix ATAC1:
+-15.0			-15.0			
+-15.0			-15.0			
+
+Matrix ATAC2:
+15.0			-15.0			
+-15.0			15.0			
+
+Matrix V:
+0.7071067811865475			0.7071067811865475			
+-0.7071067811865475			0.7071067811865475			
+
+Matrix VT:
+0.7071067811865475			-0.7071067811865475			
+0.7071067811865475			0.7071067811865475			
+
+Matrix A * V:
+2.82842712474619			2.82842712474619			
+5.65685424949238			-1.414213562373095			
+
+Matrix U:
+0.4472135954999579			0.8944271909999159			
+0.8944271909999159			-0.4472135954999579			
+
+Matrix US:
+2.8284271247461903			2.8284271247461903			
+5.656854249492381			-1.4142135623730951			
+
+Matrix B:
+4.0			0.0			
+3.0			-5.0			
+Frobenious Norm : 0.0
+
+Done!
+
